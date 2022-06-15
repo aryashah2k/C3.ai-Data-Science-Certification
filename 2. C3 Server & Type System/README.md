@@ -210,3 +210,84 @@ If you see the word Type with a capitalized first letter in this course, it is r
 
 If you see the word type in all lower case, it is referring to a class or category of something. We try to avoid using it this way but in some cases it is unavoidable.
 ```
+## F. Entity Relationship Diagram
+
+An Entity Relationship Diagram (ERD) in the C3 Type system is a graphical representation of the relationship among Application Data Model Types, which are persistable Types.  
+
+Let's take a look at how we use Application Data Model Types, relate them to each other, and present them in an ERD. 
+
+Here, we will use a small part of the use case you will work on throughout this course. 
+
+![erd-1]()
+
+We have smart lightbulbs (we will call them smartbulbs) that are installed in fixtures, which are in apartments, which are in buildings.  
+
+![erd-2]()
+
+Fixture.csv data file contains data on fixture, apartment, building, latitude, and longitude.
+
+If you look closely, you will see that the relationship between apartments and buildings is listed more than once. The latitude and longitude, which are unique to each building, are also recorded many times. 
+
+To reduce data redundancy and improve data integrity, we create relational databases that are structured in normal forms. (What are normal forms?)
+
+Refer: https://en.wikipedia.org/wiki/Database_normalization
+
+For example, we want relationships and data to be recorded in only one place so that it can be updated or deleted in one place. This makes sure that changes are consistent throughout our data model, and a change in one place do not result in inconsistencies elsewhere.
+
+We need to decide how to represent that data in the application data schema. To conform to normal forms, we split the data between three C3 Types (Fixture, Apartment, and Building) and connect them to each other through reference and collection fields.
+
+![erd-3]()
+
+Here, let's take a closer look at the collection and reference fields in this ERD. 
+
+There are many fixtures in each apartment. The fixtures field in Apartment Type represents the ids of all the fixtures in an apartment using the apartment field in Fixture Type as a filter field. This makes the fixtures field in Apartment Type a collection field. 
+
+Each fixture is installed in an apartment. The apartment field in Fixture Type holds the id of the (individual) Apartment in which that fixture is installed. This makes the apartment field in Fixture type a reference field. 
+
+The id fields of all Types, and latitude and longitude fields in the Building Type, are defined as primitive fields.
+
+![erd-4]()
+
+### Relationships in ERD
+
+The four common relationships you will see in the ERD of the C3 AI application you will use in this course are many-to-one, one-to-many, one-to-one, and many-to-many as shown in the image on the right. 
+
+![erd-5]()
+
+Did you recognize the many-to-one and one-to-many relationships? Those are the types of relationships for collection and reference fields respectively. 
+
+You might be asking where we see one-to-one and many-to-many relationships. 
+
+For example, at any specific time, one bulb can be only in one fixture. This creates a one-to-one relationship between a bulb and a fixture. However, over a period of time, many bulbs might take place in many fixtures creating a many-to-many relationship between bulbs and fixtures.
+
+What do we use these relationships for other than creating normals forms? Utilizing this structure, you can navigate an ERD! 
+
+### Navigating an ERD using Dot Notation
+
+You might be familiar with dot notation from some programming languages such as JavaScript. Don't worry if you are not!
+
+In a programming language, dot notation is a way to access a property of an object. To reach a property in an object, you need to write the name of the object, followed by a dot (.), and then followed by the name of the property. In an ERD of a C3 AI application, Types can be considered as objects and fields can be considered as properties. 
+
+Outside of the C3 Type system, you can reach a property of an object but you can not reach from one object to property of another object. In the C3 Type system, using dot notation, you can create a path to navigate from a source Type to a field in another Type utilizing the field relationships such as reference and collection. In this context, the source Type can be defined as the Type that your path starts from. 
+
+But how can we create that path? 
+
+There are three main steps in determining a path:
+
+- Choose the source Type. 
+- Determine where the data you want to reach is located. 
+- Utilize the field connections that can take you from the source Type to the data you need to reach.
+
+Let's practice creating a path using the ERD below. This ERD is a somewhat more complex version of the one you saw before. 
+
+![erd-6]()
+
+Let's say we want to create a path from SmartBulb Type to the power field in the SmartBulbMeasurement Type.
+
+In determining the path, it is helpful to consider the data model. SmartBulb has a collection field called bulbMeasurements which is linked to the SmartBulbMeasurementSeries Type. In that Type, there is another collection field called data which is connected to the SmartBulbMeasurement, the Type that contains the desired field — power. Then, the path from SmartBulb Type to the power field in the SmartBulbMeasurement Type is: 
+
+```
+bulbMeasurements[SmartBulb] -> data[SmartBulbMeasurementSeries] -> power[SmartBulbMeasurement]
+```
+With dot notation, it would be bulbMeasurements.data.power
+
