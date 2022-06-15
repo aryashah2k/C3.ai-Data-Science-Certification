@@ -1,3 +1,3 @@
-# 1. Setup Your Tools
+# 2. Introduction to C3 Server and Type System
 
 
