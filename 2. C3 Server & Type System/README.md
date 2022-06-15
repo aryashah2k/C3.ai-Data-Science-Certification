@@ -161,3 +161,52 @@ There are a few annotations you will need in this course, such as:
 ## E. Persistable Types
 
 Add Documentation
+
+## F. Naming Conventions
+
+It is important to learn and use the right naming conventions in the C3 AI Type system. Let's see how we should name Types, fields, schemas, and Type keys. 
+
+1. Type name
+
+- Type names use PascalCase, also called UpperCamelCase
+- Unique in package and chain of dependencies
+- Very descriptive with no abbreviations
+
+2. Field Name
+          
+- Field names use camelCase (first letter lower case)
+- Very descriptive with no abbreviations
+- Use plurals for collection fields
+
+3. Schema Name
+
+- Schema names use upper snake case, i.e. 
+  - ALL CAPS separated by an underscore
+  - using abbreviations by removing all non-leading vowels
+
+For example; 
+
+"Apple Sauce" --> "APPL_SC"
+
+"SmartBulb Measurements" --> "SMRTBLB_MSRMNTS"
+
+- Unique in their package and chain of dependencies
+- Limited to 19 characters — so keep them as short as possible
+
+4. Type Key Name
+
+- Same naming convention as schema name
+- Unique in the extendable Type
+- Best practice: under 15 characters 
+
+Here is an easy reference for Type, field, schema and Type key names in their own naming conventions.
+
+![reference-type]()
+
+```
+Note:
+
+If you see the word Type with a capitalized first letter in this course, it is referring to a C3 AI Type. 
+
+If you see the word type in all lower case, it is referring to a class or category of something. We try to avoid using it this way but in some cases it is unavoidable.
+```
