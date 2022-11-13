@@ -1,0 +1,20 @@
+/**
+* SourceSmartBulb.c3typ
+* This type maps the raw data for {@link SmartBulb} information.
+*/
+type SourceSmartBulb mixes Source {
+    // The manufacturer of a {@link LightBulb}
+    Manufacturer: string
+    
+    // The bulb type of a {@link LightBulb}
+    BulbType: string
+    
+    // This represents the wattage of a {@link LightBulb}
+    Wattage: decimal
+    
+    // This represents the id of a {@link LightBulb}
+    SN: string
+    
+    // This represents the start date of a {@link LightBulb}
+    StartDate: datetime
+}
