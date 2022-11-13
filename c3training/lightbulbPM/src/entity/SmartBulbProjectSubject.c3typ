@@ -1,0 +1,1 @@
+entity type SmartBulbProjectSubject extends MLProjectSubject<SmartBulb> type key 'SMBLBPS'
