@@ -1,0 +1,12 @@
+/**
+* TransformSourceApartmentToApartment.c3typ
+* transforms {@link SourceApartment} to {@link Apartment}
+*/
+
+type TransformSourceApartmentToApartment mixes Apartment transforms SourceApartment {
+    // The id of the apartment
+    id: ~ expression "apartment"
+
+    // the building the apartment is in
+    building: ~ expression {id : 'building'}
+}
