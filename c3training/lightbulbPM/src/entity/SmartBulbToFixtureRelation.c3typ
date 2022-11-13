@@ -1,0 +1,8 @@
+/**
+* SmartBulbToFixtureRelation.c3typ
+* Describes a timed interval relationship between a {@link LightBulb} and a {@link Fixture}.
+*/
+
+// These records will be indexed on two fields; the to and from fields.
+@db(index=['to', 'from'])
+entity type SmartBulbToFixtureRelation mixes TimedIntervalRelation<SmartBulb, Fixture> schema name "SMRT_BLB_FXTR_RLTN"
