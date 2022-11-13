@@ -1,0 +1,18 @@
+/**
+* SourceCity.c3typ
+* The source type for {@link City}
+*/
+
+type SourceCity mixes Source {
+    // id of the city
+    id: string
+ 
+    // name of the city
+    name: string
+
+    // latitude of the city
+    latitude: double
+
+    // longitude of the city
+    longitude: double
+}
