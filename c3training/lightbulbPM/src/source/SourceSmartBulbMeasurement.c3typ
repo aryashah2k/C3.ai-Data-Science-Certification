@@ -1,0 +1,28 @@
+/**
+* SourceSmartBulbMeasurement.c3typ
+* This type represents the raw data that for {@link SmartBulbMeasurement}s
+*/
+type SourceSmartBulbMeasurement mixes Source {
+
+ // This represents the datetime to use for the start of {@link SmartBulbMeasurement}
+ TS: datetime
+
+ // This represents the id of the {@link SmartBulb}
+ SN: string
+
+ // This represents the status measurement
+ Status: integer
+
+ // This represents the watts measurement
+ Watts: double
+
+ // This represents the lumens measurement
+ Lumens: double
+
+ // This represents the voltage measurement
+ Voltage: double
+
+ // This represents the temperature measurement
+ Temp: double
+ 
+}
