@@ -1,0 +1,30 @@
+/**
+* TransformSourceSmartBulbMeasurementToSmartBulbMeasurement.c3typ
+* This type transforms data from the {@link SourceSmartBulbMeasurement} to the {@link SmartBulbMeasurement} type.
+*/
+type TransformSourceSmartBulbMeasurementToSmartBulbMeasurement mixes SmartBulbMeasurement transforms SourceSmartBulbMeasurement {
+ /**
+ * Use the serial number field ("SN") of the Source to create a properly formatted pointer 
+ * to the parent {@link SmartBulbMeasurementSeries} object.
+ */
+ parent: ~ expression { id: "concat('SBMS_serialNo_',SN)" }
+ 
+ // This field will take the value of the "TS" field for the record
+ start: ~ expression "TS" 
+ 
+ // This field will take the value of the "Status" field for the record
+ status: ~ expression "Status"
+ 
+ // This field will take the value of the "Watts" field for the record
+ power: ~ expression "Watts"
+ 
+ // This field will take the value of the "Lumens" field for the record
+ lumens: ~ expression "Lumens"
+ 
+ // This field will take the value of the "Voltage" field for the record
+ voltage: ~ expression "Voltage"
+ 
+ // This field will take the value of the "Temp" field for the record
+ temperature: ~ expression "Temp"
+
+}
