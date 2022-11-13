@@ -1,0 +1,15 @@
+/**
+* City.c3typ
+* A city with many {@link Building}s in it
+*/
+entity type City mixes MetricEvaluatable schema name "CTY" {
+    
+    // The latitude of this city.
+    latitude: double
+
+    // The longitude of this city.
+    longitude: double
+    
+    // The building in this city
+    buildings: [Building](city)
+}
