@@ -1,0 +1,23 @@
+{   
+  "name": "py-pythonEnv",
+  "language": "Python",
+  "runtime": "CPython",
+  "runtimeVersion": "3.7",
+  "modules": {
+    "conda.numpy": "=1.19.5",
+    "conda.cython": "=0.29.12",
+    "conda.scikit-learn": "=0.23.1",
+    "conda.scipy": "=1.4.1",
+    "conda.pip": "=21.1.2",
+    "conda.ply": "=3.11",
+    "conda.pandas": "=1.2.4",
+    "conda.openblas": "=0.3.6",
+    "conda.matplotlib": "=3.4.2",
+    "conda.dill": "=0.3.4"
+  },
+  "repositories": [
+    "https://repo.continuum.io/pkgs/main",
+    "https://artifacts.c3-e.com/v1/anaconda",
+    "conda-forge"
+  ]
+}
