@@ -1,0 +1,13 @@
+/**
+* SourcePowerGridStatusSet.c3typ
+* This type represents the raw data for {@link PowerGridStatus}
+*/
+type SourcePowerGridStatusSet mixes Source {
+
+ // The datetime of a {@link PowerGridStatus} event
+ TS: datetime
+ // The id of the {@link Building}
+ Building: string
+ // The status ON or OFF (1 or 0) for the power grid of a {@link Building}
+ Status: int
+}
