@@ -1,0 +1,15 @@
+/**
+* Fixture.c3typ
+* A light fixture that a single {@link SmartBulb} may be connected to.
+*/
+entity type Fixture schema name "FXTR" {
+
+    apartment: !Apartment
+
+    // The collection of {@link SmartBulbToFixtureRelation}s for this fixture
+    @db(order='descending(start)')
+    bulbHistory: [SmartBulbToFixtureRelation](to)
+
+    // The current {@link LightBulb} in this fixture
+    currentBulb: SmartBulb stored calc 'bulbHistory[0].(end == null).from'
+}
