@@ -1,0 +1,26 @@
+/**
+ * Example of how to write a custom Python pipe which take Datasets as inputs.  See
+ * {@link CustomPythonMLPipe} for a description of the required interfaces to your custom python code.
+ *
+ * This toy example will take all entries in the input Dataset and add a fixed offset.  If you specify the
+ * the hyperparameter 'fixed_offset' in {@link #technique.hyperParameters}, training will have no effect.  If you do
+ * not specify any hyperparameters, the offset is calculated during training to be the negative of the minimum value in
+ * the Dataset, so the minimum is always shifted to 0, if we process the original training Dataset.
+ *
+ * The python implementation of this pipe is in ExampleCustomPythonMLPipe.py , in a class named
+ * 'ExampleCustomPythonMLPipe'.  Thus, {@link MLTechnique#name} in {@link #technique} can be unspecified (null).
+ */
+entity type MyExampleCustomPythonMLPipe extends MLLeafPipe<Dataset, Dataset> type key 'MECPM' {
+
+  /**
+   * @return the same result as {@link #isTrained}, since this pipe needs to be trained before processing.
+   */
+  technique: !MyExampleCustomPythonMLTechnique
+
+  @py(env='py-pythonEnv')
+  train: ~
+
+  @py(env='py-pythonEnv')
+  process: ~
+
+}
