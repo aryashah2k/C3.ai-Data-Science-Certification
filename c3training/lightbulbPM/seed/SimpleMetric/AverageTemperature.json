@@ -1,0 +1,26 @@
+[
+    {
+        "id": "AverageTemperature_SmartBulb",
+        "name": "AverageTemperature",
+        "description": "Average temperature over time of the SmartBulb",
+        "srcType": "SmartBulb",
+        "path": "bulbMeasurements",
+        "expression": "avg(avg(normalized.data.temperature))"
+    },
+    {
+        "id": "AverageTemperature_Building",
+        "name": "AverageTemperature",
+        "srcType": "Building",
+        "description": "average temperature of a building",
+        "path": "apartments.fixtures.bulbHistory.from.bulbMeasurements",
+        "expression": "avg(avg(normalized.data.temperature))"
+    },
+    {
+        "id": "AverageTemperature_City",
+        "name": "AverageTemperature",
+        "srcType": "City",
+        "description": "average temperature of the city's smartbulbs",
+        "path": "buildings.apartments.fixtures.bulbHistory.from.bulbMeasurements",
+        "expression": "avg(avg(normalized.data.temperature))"
+    }
+]
