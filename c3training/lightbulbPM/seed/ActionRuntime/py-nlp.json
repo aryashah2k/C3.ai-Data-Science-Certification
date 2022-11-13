@@ -1,0 +1,32 @@
+{
+  "name": "py-nlp",
+  "language": "Python",
+  "runtime": "CPython",
+  "runtimeVersion": "3.6",
+  "modules": {
+    "conda.numpy": "=1.15.2",
+    "conda.cython": "=0.29.12",
+    "conda.scikit-learn": "=0.21.2",
+    "conda.scipy": "=1.2.1",
+    "conda.pip": "=10.0.1",
+    "conda.ply": "=3.11",
+    "conda.pandas": "=0.22.0",
+    "conda.openblas": "=0.3.6",
+    "conda.matplotlib": "=3.1.0",
+    "conda.dill": "=0.2.8.2",
+    "pip.tensorflow": "==1.9.0",
+    "pip.slimit": "==0.8.1",
+    "pip.jsonpickle": "==1.2",
+    "pip.js2py": "==0.66",
+    "pip.treeinterpreter": "==0.2.2",
+    "pip.eli5": "==0.9.0",
+    "pip.nltk": "==3.2.4",
+    "conda.libgfortran": "=3.0",
+    "pip.textblob": "==0.12.0"        
+  },
+  "repositories": [
+    "https://repo.continuum.io/pkgs/main",
+    "https://artifacts.c3-e.com/v1/anaconda",
+    "conda-forge"
+  ]
+}
