@@ -1,0 +1,17 @@
+/**
+* TransformSourceCityToCity.c3typ
+* Transform from {@link SourceCity} to {@link City}
+*/
+type TransformSourceCityToCity mixes City transforms SourceCity {
+    // the id of the city
+    id: ~ expression "id"
+
+    // the name of the city
+    name: ~ expression "name"
+
+    // the latitude of the city
+    latitude: ~ expression "latitude"
+
+    // the longitude of the city
+    longitude: ~ expression "longitude" 
+}
