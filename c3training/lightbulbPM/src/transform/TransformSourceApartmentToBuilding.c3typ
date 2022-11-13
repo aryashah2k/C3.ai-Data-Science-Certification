@@ -1,0 +1,18 @@
+/**
+* TransformSourceApartmentToBuilding.c3typ
+* Transforms {@link SourceApartment} to {@link Building}
+*/
+
+type TransformSourceApartmentToBuilding mixes Building transforms SourceApartment {
+    // the id of the building
+    id: ~ expression  "building"
+
+    // the city the building is in
+    city: ~ expression {id : "city"}
+
+    // the latitude of the building
+    latitude: ~ expression "latitude"
+
+    // the longitude of the building
+    longitude: ~ expression "longitude" 
+}
