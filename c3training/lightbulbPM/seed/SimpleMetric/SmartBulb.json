@@ -1,0 +1,34 @@
+[
+    {
+      "id": "Status_SmartBulb",
+      "name": "Status",
+      "description": "Status (1 or 0) indicating ON or OFF of the SmartBulb over time",
+      "srcType": "SmartBulb",
+      "path": "bulbMeasurements",
+      "expression": "max(max(normalized.data.status))"
+    },
+    {
+      "id": "AveragePower_SmartBulb",
+      "name": "AveragePower",
+      "srcType": "SmartBulb",
+      "description": "average rate of energy usage (power) in watts",
+      "path": "bulbMeasurements",
+      "expression": "avg(avg(normalized.data.power))"
+    },
+    {
+      "id": "AverageLumens_SmartBulb",
+      "name": "AverageLumens",
+      "description": "Average lumens over time of the SmartBulb",
+      "srcType": "SmartBulb",
+      "path": "bulbMeasurements",
+      "expression": "avg(avg(normalized.data.lumens))"
+    },
+    {
+      "id": "AverageVoltage_SmartBulb",
+      "name": "AverageVoltage",
+      "srcType": "SmartBulb",
+      "description": "average voltage over time",
+      "path": "bulbMeasurements",
+      "expression": "avg(avg(normalized.data.voltage))"
+    }
+  ]
