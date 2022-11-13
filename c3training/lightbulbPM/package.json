@@ -1,0 +1,6 @@
+{
+  "name": "lightbulbPM",
+  "description": "Lightbulb Practice Exercises",
+  "author": "C3 Training",
+  "dependencies": ["standardDependencies", "modelDeployment"]
+}
