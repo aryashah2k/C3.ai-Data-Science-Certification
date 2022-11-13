@@ -1,0 +1,22 @@
+/**
+ * SmartBulbRiskScore.c3typ
+ * A riskScore made for a single {@link SmartBulb}.
+ * Note: The @db annotation stores the data in Cassandra
+ */
+ @db(compactType=true,
+  datastore='cassandra',
+  partitionKeyField='smartBulb',
+  persistenceOrder='timestamp',
+  persistDuplicates=false,
+  shortId=true,
+  shortIdReservationRange=100000)
+entity type SmartBulbRiskScore schema name "SMRT_BLB_RSKSCR" {
+  // The calculated risk score for this SmartBulb
+  riskScore: !double
+
+  // The {@link SmartBulb} for which this riskScore was made.
+  smartBulb: !SmartBulb
+
+  //The time at which this riskScore was made.
+  timestamp: !datetime
+}
