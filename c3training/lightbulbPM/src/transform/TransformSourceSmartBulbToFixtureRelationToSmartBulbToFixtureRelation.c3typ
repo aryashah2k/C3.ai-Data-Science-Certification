@@ -1,0 +1,23 @@
+/**
+* TransformSourceSmartBulbToFixtureRelationToSmartBulbToFixtureRelation.c3typ
+* This type maps the data flow from the 
+* {@link SourceSmartBulbToFixtureRelation} to the 
+* {@link SmartBulbToFixtureRelation} type.
+*/
+type TransformSourceSmartBulbToFixtureRelationToSmartBulbToFixtureRelation mixes SmartBulbToFixtureRelation transforms SourceSmartBulbToFixtureRelation {
+  
+  // Concatenates "SN", "fixture", and start fields with a '_' characters for a unique id
+  id: ~ expression "concat(SN,'_',fixture,'_',start)"
+  
+  // References "SN" of a {@link SmartBulb}  
+  from: ~ expression { id: "SN" }  
+  
+  // References fixture id of a {@link Fixture}
+  to: ~ expression { id: "fixture" }
+  
+  // "start" time of the relationship
+  start: ~ expression "start" 
+  
+  // "end" time of the relationship
+  end: ~ expression "end"
+}
