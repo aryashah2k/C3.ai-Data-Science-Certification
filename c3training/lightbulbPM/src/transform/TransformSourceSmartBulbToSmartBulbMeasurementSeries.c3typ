@@ -1,0 +1,19 @@
+/**
+* TransformSourceSmartBulbToSmartBulbMeasurementSeries.c3typ
+* Transforms the data from the {@link SourceSmartBulb} to the {@link SmartBulbMeasurementSeries} type.
+*/
+type TransformSourceSmartBulbToSmartBulbMeasurementSeries mixes SmartBulbMeasurementSeries transforms SourceSmartBulb {
+// We avoid transforming from the measurement data to the headers to prevent creating/updating the headers an excessive number of times. This is very important at large scales.
+
+    // This field will take the concatenated value of "SBMS_serialNo_" and the "SN" field for the record
+    id: ~ expression "concat('SBMS_serialNo_',SN)"
+
+    // This field will make a reference using the "SN" field value for the record
+    smartBulb: ~ expression { id: "SN" }
+
+    // Sets the time zone for all records to GMT-8:00
+    timeZone: ~ expression "'GMT-08:00'"
+
+    // Sets the interval to HOUR and skips normalization engine interval detection
+    interval: ~ expression "'HOUR'"
+}
