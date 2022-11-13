@@ -1,0 +1,18 @@
+/**
+* TransformSourcePowerGridStatusSetToPowerGridStatusSet.c3typ
+* Transforms data from the {@link SourcePowerGridStatus} to the {@link Building} type.
+*/
+type TransformSourcePowerGridStatusSetToPowerGridStatusSet mixes PowerGridStatusSet transforms SourcePowerGridStatusSet {
+
+ // The concatinated Building and Fields used as a unique id
+ id: ~ expression "concat(Building,'_',TS)"
+ 
+ // The parent building record for this status
+ parent: ~ expression {id: 'Building'}
+
+ // The time the status changed
+ timestamp: ~ expression 'TS'
+
+ // The status at the time of change
+ value: ~ expression 'Status'
+}
