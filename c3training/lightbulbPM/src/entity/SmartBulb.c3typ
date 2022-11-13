@@ -1,0 +1,44 @@
+/**
+* SmartBulb.c3typ
+* A {@link LightBulb} that streams data about power, 
+* light output, voltage, and temperature.
+*/
+entity type SmartBulb extends LightBulb mixes MetricEvaluatable, MLSubject type key "SMRT_BLB" {
+ 
+    // Unit of measurement for power consumption
+    powerUOM: Unit post default "{id:'watt'}"
+    
+    // Unit of measure for light output
+    lumensUOM: Unit post default "{id: 'lumen'}"
+    
+    // Unit of measurement for voltage
+    voltageUOM: Unit post default "{id:'volt'}"
+
+    // Unit of measurement for temperature
+    temperatureUOM: Unit post default "{id:'degrees_celsius'}"
+
+    // The collection of {@link SmartBulbToFixtureRelation}s for this bulb
+    @db(order='descending(start)')
+    fixtureHistory: [SmartBulbToFixtureRelation](from)
+
+    // The {@link Fixture} this bulb is currenly in
+    currentFixture: Fixture stored calc 'fixtureHistory[0].(end == null).to'
+        
+    // This bulb's historical measurement series
+    bulbMeasurements: [SmartBulbMeasurementSeries](smartBulb)
+
+    // This bulb's riskScores, ordered by the SmartBulbRiskScore.timestamp field in descending order
+    @db(order='descending(timestamp)')
+    bulbRiskScores: [SmartBulbRiskScore](smartBulb)
+
+    //This bulb's latest riskScore
+    currentRiskScore: SmartBulbRiskScore stored calc "bulbRiskScores[0]"
+
+    //static python method to calculate the lifespan of a given smartbulb
+    @py(env='pythonEnv')
+    lifeSpanInYears: function(bulbId: string): double
+
+    //bulbNumber
+    bulbNumber: int
+
+}
