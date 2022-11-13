@@ -1,0 +1,6 @@
+/**
+* PowerGridStatusSet.c3typ
+* The history of power grid statusfor a {@link Building}.
+*/
+
+entity type PowerGridStatusSet mixes TimedValueHistory<Building>, Integer schema name 'PWR_GRD_STTS_ST'
