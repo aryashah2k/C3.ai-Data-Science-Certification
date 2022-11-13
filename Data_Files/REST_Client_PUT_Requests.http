@@ -1,0 +1,12 @@
+@hostUrl = <hostUrl>
+@tenant = <tenant>
+@tag = <tag>
+@C3AuthToken = <C3AuthToken>
+
+###
+PUT {{hostUrl}}/import/1/{{tenant}}/{{tag}}/<FileSourceCollection>/<FileName.csv> HTTP/1.1
+Content-Type: text/csv
+Authorization: {{C3AuthToken}}
+
+< <Full_path_to_file>
+###
