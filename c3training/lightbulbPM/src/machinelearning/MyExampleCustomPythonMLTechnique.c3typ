@@ -1,0 +1,5 @@
+type MyExampleCustomPythonMLTechnique mixes MLTechnique {
+
+  groupBy: string
+
+}
