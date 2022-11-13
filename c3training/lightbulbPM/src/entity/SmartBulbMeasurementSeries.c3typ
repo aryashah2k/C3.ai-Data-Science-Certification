@@ -1,0 +1,9 @@
+/*
+* SmartBulbMeasurementSeries.c3typ
+* A series of measurements taken from a single {@link SmartBulb}.
+*/
+entity type SmartBulbMeasurementSeries mixes TimedDataHeader<SmartBulbMeasurement> schema name "SMRT_BLB_MSRMNT_SRS" {
+
+ // The {@link SmartBulb} for these measurements
+ smartBulb: !SmartBulb
+}
